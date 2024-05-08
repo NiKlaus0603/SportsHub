@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/NiKlaus0603/SportsHub.git/static/css/main.ca400325.css",
+    "main.js": "/NiKlaus0603/SportsHub.git/static/js/main.dcea7def.js",
+    "index.html": "/NiKlaus0603/SportsHub.git/index.html",
+    "main.ca400325.css.map": "/NiKlaus0603/SportsHub.git/static/css/main.ca400325.css.map",
+    "main.dcea7def.js.map": "/NiKlaus0603/SportsHub.git/static/js/main.dcea7def.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ca400325.css",
+    "static/js/main.dcea7def.js"
+  ]
+}
