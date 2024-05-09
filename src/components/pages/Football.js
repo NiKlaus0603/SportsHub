@@ -2,13 +2,15 @@ import React from 'react';
 import '../../App.css';
 import HeroSection from '../HeroSection';
 import Footer from '../Footer';
-import PlayersOfSport from './PlayersOfSport';
+import Playercard from '../Playercard';
+import Description from '../Description';
 
-export default function Football() {
+export default function Baseball() {
   return (
     <>
       <HeroSection />
-      <PlayersOfSport sport_id={1}/>
+      <Description sport_id={1}/>
+      <Playercard sport_id={1}/>
       <Footer />
     </>
   );

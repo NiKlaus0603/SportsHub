@@ -1,69 +1,54 @@
 import React, { useEffect, useState } from 'react';
-import './Cards.css';
+import '../App.css';
+import axios from 'axios';
 import CardItem from './CardItem';
 
-function Cards() {
+export default function PlayersOfSport({ sport_id }) {
   const [players, setPlayers] = useState([]);
 
+  // Array of placeholder images
+  const placeholderImages = [
+    'https://via.placeholder.com/150/0000FF/808080?text=Player1',
+    'https://via.placeholder.com/150/FF0000/FFFFFF?text=Player2',
+    'https://via.placeholder.com/150/FFFF00/000000?text=Player3',
+    'https://via.placeholder.com/150/00FF00/000000?text=Player4'
+  ];
+
   useEffect(() => {
-    fetch('http://localhost:3001/api/players')
-      .then(response => response.json())
-      .then(data => setSports(data))
-      .catch(error => console.error('Error fetching data:', error));
-  }, []);
+    axios.get('http://localhost:3001/api/playersOfSport', {
+      params: { sport_id: sport_id }
+    })
+    .then(res => {
+      console.log(res.data); // Log the received data
+      setPlayers(res.data); // Update state with the data
+    })
+    .catch(err => {
+      console.error('Error fetching players:', err); // Log any errors
+    });
+  }, [sport_id]); // Effect dependency array includes sport_id
+
+  // Function to select a placeholder image
+  const getPlaceholderImage = (index) => {
+    return placeholderImages[index % placeholderImages.length]; // Cycle through the array
+  };
 
   return (
     <div className='cards'>
-      <h1>Check out these EPIC Destinations!</h1>
       <div className='cards__container'>
         <div className='cards__wrapper'>
           <ul className='cards__items'>
-            {sports[0] && (
+            {players.map((player, index) => (
               <CardItem
-                src='https://www.thestatesman.com/wp-content/uploads/2020/02/000_1OK50R.jpg'
-                text={``}
-                label='Adventure'
-                path=''
+                key={player.id || index} // Use player.id if available, otherwise use index
+                src={player.imageSrc || getPlaceholderImage(index)} // Use player image or a placeholder
+                text={player.name}
+                label='Adventure' // Static label, adjust as needed
+                path={`/sport/${player.id}`} // Path using player.id
               />
-            )}
-            {sports[1] && (
-              <CardItem
-                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCgM6vfreSiZImtAZ7jBwRrfh8kHxeNO_Svg&usqp=CAU'
-                text={``}
-                label='Luxury'
-                path=''
-              />
-            )}
-          
-            {sports[2] && (
-              <CardItem
-                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO18k_TOgp1E2h2Riwb1KatbxmLCA5SlgJsg&usqp=CAU'
-                text={``}
-                label='Mystery'
-                path=''
-              />
-            )}
-            {sports[3] && (
-              <CardItem
-                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1rNI9o2a-gUkxI0iW210rPSbombRWL30aOg&usqp=CAU'
-                text={`$`}
-                label='Adventure'
-                path=''
-              />
-            )}
-            {sports[4] && (
-              <CardItem
-                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsAEwEoCr07YmG1TiP5q3fIC2emFI8iAMsmg&usqp=CAU'
-                text={``}
-                label='Adrenaline'
-                path=''
-              />
-            )}
+            ))}
           </ul>
         </div>
       </div>
     </div>
   );
 }
-
-export default Cards;

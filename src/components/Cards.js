@@ -14,7 +14,6 @@ function Cards() {
 
   return (
     <div className='cards'>
-      <h1>Check out these EPIC Destinations!</h1>
       <div className='cards__container'>
         <div className='cards__wrapper'>
           <ul className='cards__items'>
@@ -30,7 +29,7 @@ function Cards() {
               <CardItem
                 src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCgM6vfreSiZImtAZ7jBwRrfh8kHxeNO_Svg&usqp=CAU'
                 text={`${sports[1].name}`}
-                label='Luxury'
+                label='Speed'
                 path='/Basketball'
               />
             )}
