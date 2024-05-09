@@ -3,9 +3,8 @@ import './Cards.css';
 import CardItem from './CardItem';
 
 function Cards() {
-  const [sports, setSports] = useState([]);
   
-
+  const [sports, setSports] = useState([]);
   useEffect(() => {
     fetch('http://localhost:3001/api/sports')
       .then(response => response.json())
