@@ -22,11 +22,9 @@ function App() {
           <Route path='/Cricket'  element={<Cricket/>} />
           <Route path='/Baseball'  element={<Baseball/>} />
           <Route path='/Formula1'  element={<Formula1/>} />
-          
           </Routes>
       </Router>
     </>
   );
 }
-
 export default App;

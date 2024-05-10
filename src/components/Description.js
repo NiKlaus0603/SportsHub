@@ -1,24 +1,21 @@
 import React, { useEffect, useState } from 'react';
 
-function Description({ sport_id }) {
+function SportDescription({ sport_id }) {  // Renamed to avoid potential conflicts
     const [description, setDescription] = useState('');
 
     useEffect(() => {
-        // Fetch specific sport details by sport_id
         fetch(`http://localhost:3001/api/sports/${sport_id}`)
             .then(response => response.json())
             .then(data => {
-                // Assuming the data returned has a 'description' field
-                console.log(data)
-                setDescription(data.description);
-
+                console.log(data);  // Log the data to check what's being received
+                setDescription(data.description);  // Set the description based on data received
             })
-            .catch(error => console.error('Error fetching data:', error));
-    }, [sport_id]);  // Dependency on sport_id to refetch when it changes
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    }, [sport_id]);  // Dependency array to trigger re-fetch when sport_id changes
 
-    return (
-        <h1>{description || 'Loading sport description...'}</h1>
-    );
+    return <h1>{description || 'Loading sport description...'}</h1>;
 }
 
-export default Description;
+export default SportDescription;  // Ensure the export matches the function name

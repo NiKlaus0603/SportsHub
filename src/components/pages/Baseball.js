@@ -3,14 +3,16 @@ import '../../App.css';
 import HeroSection from '../HeroSection';
 import Footer from '../Footer';
 import Playercard from '../Playercard';
-import Description from '../Description';
+import SportDescription from '../Description';
+import SportRules from '../Rules';
 
 export default function Baseball() {
   return (
     <>
       <HeroSection />
-      <Description sport_id={4}/>
+      <SportDescription sport_id={4}/>
       <Playercard sport_id={4}/>
+      <SportRules sport_id={4}/>
       <Footer />
     </>
   );

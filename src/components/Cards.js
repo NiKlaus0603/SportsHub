@@ -19,7 +19,7 @@ function Cards() {
           <ul className='cards__items'>
             {sports[0] && (
               <CardItem
-                src='https://www.thestatesman.com/wp-content/uploads/2020/02/000_1OK50R.jpg'
+                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCgM6vfreSiZImtAZ7jBwRrfh8kHxeNO_Svg&usqp=CAU'
                 text={`${sports[0].name}`}
                 label='Adventure'
                 path='/Football'
@@ -27,7 +27,7 @@ function Cards() {
             )}
             {sports[1] && (
               <CardItem
-                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCgM6vfreSiZImtAZ7jBwRrfh8kHxeNO_Svg&usqp=CAU'
+                src='https://static.printler.com/cache/6/e/3/9/0/2/6e390208b9b5c84db18f31add74912dcde1872b3.jpg'
                 text={`${sports[1].name}`}
                 label='Speed'
                 path='/Basketball'
@@ -36,7 +36,7 @@ function Cards() {
           
             {sports[2] && (
               <CardItem
-                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO18k_TOgp1E2h2Riwb1KatbxmLCA5SlgJsg&usqp=CAU'
+                src='https://www.thestatesman.com/wp-content/uploads/2020/02/000_1OK50R.jpg'
                 text={`${sports[2].name}`}
                 label='Mystery'
                 path='/Cricket'
@@ -64,5 +64,4 @@ function Cards() {
     </div>
   );
 }
-
 export default Cards;
