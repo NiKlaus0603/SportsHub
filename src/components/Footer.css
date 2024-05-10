@@ -1,21 +1,26 @@
 /* Assuming you have a CSS file linked or using a style tag in your component */
 .footer-container {
-  position: fixed;    /* Fixed positioning to keep it at the bottom */
-  left: 0;            /* Aligns the footer to the left edge */
-  bottom: 0;          /* Aligns the footer to the bottom edge */
-  width: 100%;        /* Ensures the footer stretches across the width */
-  background-color: #343a40; /* Dark background, assuming bootstrap dark color */
-  color: white;       /* Light text for contrast */
-  text-align: center; /* Centers the text and buttons within the footer */
-  padding: 1rem 0;    /* Padding for aesthetic spacing */
-  z-index: 1000;      /* Ensures the footer is above other content */
+  position: fixed; /* Fix position to bottom of the page */
+  bottom: 0; /* Align to bottom */
+  left: 50%; /* Center align */
+  transform: translateX(-50%); /* Adjust centering */
+  display: flex; /* Flex container */
+  justify-content: center; /* Center children horizontally */
+  align-items: center; /* Center children vertically */
+  padding: 20px; /* Padding around */
+  background-color: transparent; /* Optional, make background transparent */
+  z-index: 1000; /* Make sure footer is above other content */
 }
 
 .footer-container a { /* Styles for the links within the footer */
-  color: white;       /* Ensures text links are white */
+  color: black;  
+  background-color: aliceblue;
+  border-radius: 50px;
+  width: fit-content;     /* Ensures text links are white */
 }
 
 /* Additional padding at the bottom of the page to avoid content being hidden by the footer */
 body {
   padding-bottom: 60px; /* Adjust based on the height of your footer */
 }
+

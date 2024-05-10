@@ -55,7 +55,7 @@ export default function PlayersOfSport({ sport_id }) {
   };
 
   return (
-    <div className='cards'>
+    <div className='cards_p'>
       <div className='cards__container'>
         <div className='cards__wrapper'>
           <ul className='cards__items'>

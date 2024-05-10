@@ -1,52 +1,64 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './Matches.css'; // Ensure this CSS file is linked in your project
 
-const MatchList = () => {
+function Matches({ sport_id }) {
   const [matches, setMatches] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  // Function to fetch matches by sport ID
-  const fetchMatchesBySportId = (sportId) => {
-    setLoading(true);
-    setError('');
-    axios.get(`http://localhost:3001/api/matches/sports/${sportId}`)
-      .then(res => {
-        setMatches(res.data);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error(`Error fetching matches for sport ${sportId}:`, err);
-        setError('Failed to fetch matches for this sport');
-        setLoading(false);
-      });
-  };
+  // URL array for demo purposes. Replace or dynamically fetch as needed.
+  const matchLinks = [
+    'https://www.youtube.com/watch?v=OzsYsAvVaTk',
+    'https://www.youtube.com/watch?v=OzsYsAvVaTk',
+    'https://www.youtube.com/watch?v=OzsYsAvVaTk',
+    // Continue adding URLs for all your matches
+  ];
 
   useEffect(() => {
-    fetchAllMatches();  // Fetch all matches on initial load
-  }, []);
+    setLoading(true);
+    setError('');
+    axios.get(`http://localhost:3001/api/matches/sports/${sport_id}`)
+      .then(response => {
+        if (response.data && response.data.length > 0) {
+          setMatches(response.data);
+          setLoading(false);
+        } else {
+          setError('No matches found for this sport.');
+          setLoading(false);
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching matches:', error);
+        setError('Failed to fetch matches. Please try again.');
+        setLoading(false);
+      });
+  }, [sport_id]);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error}</div>;
 
   return (
-    <div>
-      <h1>Match List</h1>
-      {error && <p>{error}</p>}
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <div>
-          <button onClick={() => fetchMatchesBySportId(1)}>Show Football Matches</button>
-          <button onClick={() => fetchMatchesBySportId(2)}>Show Basketball Matches</button>
-          <ul>
-            {matches.map(match => (
-              <li key={match.match_id}>
-                {match.summary} (Date: {match.match_date})
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+    <div className="match-cards-container">
+      <h1>GREATEST KNOCKS</h1>
+      <br></br>
+      <div className="cards_m">
+        {matches.map((match, index) => (
+          <a key={match.match_id} href={matchLinks[index]} target="_blank" rel="noopener noreferrer" className="card">
+            <div className="card-content">
+              <h2>{formatDate(match.match_date)}</h2>
+              <p>{match.summary}</p>
+            </div>
+          </a>
+        ))}
+      </div>
     </div>
   );
-};
+}
 
-export default MatchList;
+// Helper function to format date
+function formatDate(dateString) {
+    return dateString.split('T')[0];  // Takes only the date part before the 'T'
+}
+
+export default Matches;

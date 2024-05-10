@@ -1,12 +1,91 @@
-ul {
-    padding-left: 20px;
-    list-style-type: disc;
-  }
-  
-  li {
-    margin-bottom: 10px;
-    font-size: 16px;
-    line-height: 1.6;
-    color: #333;
-  }
-  
+table {
+  width: 100%;
+  border-collapse: collapse; /* Ensures borders between cells are merged */
+}
+
+th, td {
+  border: 1px solid #ccc; /* Light grey border around table cells */
+  padding: 8px; /* Padding inside cells for better text alignment */
+  text-align: left; /* Align text to the left in cells */
+}
+
+th {
+  background-color: #f4f4f4; /* Light grey background for headers */
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #f9f9f9; /* Zebra striping for rows */
+}
+
+
+/* General styles to ensure the font and colors match the overall design */
+body {
+  font-family: Arial, sans-serif; /* Example font */
+  color: #333;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container for all content to center it */
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Styling for the table specifically */
+table {
+  width: 100%; /* Full width of the container it's in */
+  border-collapse: collapse;
+  margin: 20px 0; /* Add vertical spacing */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Consistent with card shadows */
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #eee;
+}
+
+/* Centering table headers and data cells */
+th, td {
+  text-align: center;
+}
+
+/* Add styles for other elements as needed */
+/* Container for all content to center it */
+.container {
+  width: 80%;
+  max-width: 1200px;  /* Adjust max-width as needed for your design */
+  margin: 0 auto;  /* Centers the container */
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Styling for the table specifically */
+table {
+  width: 100%;  /* Takes the full width of the container */
+  max-width: 600px;  /* Limits the table's maximum width */
+  border-collapse: collapse;
+  margin: 20px auto;  /* Centers the table horizontally and adds vertical spacing */
+  /*box-shadow: 0 2px 5px rgba(0,0,0,0.1);  Optional: adds shadow for consistency */
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;  /* Centers text in table headers and cells */
+}
+
+th {
+  background-color: #eee;
+}
+

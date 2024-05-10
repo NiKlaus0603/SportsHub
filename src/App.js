@@ -9,7 +9,6 @@ import Baseball from './components/pages/Baseball';
 import Formula1 from './components/pages/Formula1';
 import { BrowserRouter as Router,Routes, Route } from 'react-router-dom';
 
-
 function App() {
   return (
     <>

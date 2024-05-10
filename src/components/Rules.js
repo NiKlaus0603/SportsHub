@@ -22,18 +22,29 @@ function SportRules({ sport_id }) {
       });
   }, [sport_id]);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error}</div>;
 
   return (
     <div>
-      <h1>Rules</h1>
+      <h1>Rules </h1>
       {rules.length > 0 ? (
-        <ul>
-          {rules.map(rule => (
-            <li key={rule.rule_id}>{rule.description}</li>
-          ))}
-        </ul>
+        <table>
+          <thead>
+            <tr>
+              
+              
+            </tr>
+          </thead>
+          <tbody>
+            {rules.map(rule => (
+              <tr key={rule.rule_id}>
+                
+                <td>{rule.description}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       ) : (
         <p>No rules found for this sport.</p>
       )}
